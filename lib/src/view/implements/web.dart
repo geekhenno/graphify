@@ -17,6 +17,7 @@ class GraphifyView extends StatefulWidget implements g_view.GraphifyView {
     this.initialOptions,
     this.onConsoleMessage,
     this.onCreated,
+    this.disablePointerEvent = false,
   });
 
   @override
@@ -30,6 +31,8 @@ class GraphifyView extends StatefulWidget implements g_view.GraphifyView {
 
   @override
   final VoidCallback? onCreated;
+
+  final bool disablePointerEvent;
 
   @override
   State<StatefulWidget> createState() => _GraphifyViewWeb();
@@ -67,6 +70,10 @@ class _GraphifyViewWeb extends g_view.GraphifyViewState<GraphifyView> {
       ..onError.listen((event) {
         widget.onConsoleMessage?.call(event.toString());
       });
+
+    if (widget.disablePointerEvent) {
+      iframe.style.pointerEvents = 'none';
+    }
 
     return iframe;
   }
