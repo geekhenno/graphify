@@ -9,6 +9,7 @@ class GraphifyView extends StatelessWidget implements g_view.GraphifyView {
     this.initialOptions,
     this.onConsoleMessage,
     this.onCreated,
+    this.disablePointerEvent = false,
   });
 
   @override
@@ -22,6 +23,8 @@ class GraphifyView extends StatelessWidget implements g_view.GraphifyView {
 
   @override
   final VoidCallback? onCreated;
+
+  final bool disablePointerEvent;
 
   @override
   Widget build(BuildContext context) {

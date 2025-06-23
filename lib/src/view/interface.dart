@@ -9,6 +9,7 @@ abstract class GraphifyView {
     this.initialOptions,
     this.onConsoleMessage,
     this.onCreated,
+    this.disablePointerEvent = false,
   });
 
   final GraphifyController? controller;
@@ -19,6 +20,7 @@ abstract class GraphifyView {
 
   final VoidCallback? onCreated;
 
+  final bool disablePointerEvent;
 }
 
 abstract class GraphifyViewState<T extends StatefulWidget> extends State<T> {
@@ -37,5 +39,4 @@ abstract class GraphifyViewState<T extends StatefulWidget> extends State<T> {
   Widget buildView();
 
   void initView();
-
 }

@@ -12,6 +12,7 @@ class GraphifyView extends StatefulWidget implements g_view.GraphifyView {
     this.initialOptions,
     this.onConsoleMessage,
     this.onCreated,
+    this.disablePointerEvent = false,
   });
 
   @override
@@ -25,6 +26,9 @@ class GraphifyView extends StatefulWidget implements g_view.GraphifyView {
 
   @override
   final VoidCallback? onCreated;
+
+  @override
+  final bool disablePointerEvent;
 
   @override
   State<StatefulWidget> createState() => _GraphifyViewMobile();

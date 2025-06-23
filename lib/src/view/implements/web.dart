@@ -32,6 +32,7 @@ class GraphifyView extends StatefulWidget implements g_view.GraphifyView {
   @override
   final VoidCallback? onCreated;
 
+  @override
   final bool disablePointerEvent;
 
   @override
@@ -39,7 +40,6 @@ class GraphifyView extends StatefulWidget implements g_view.GraphifyView {
 }
 
 class _GraphifyViewWeb extends g_view.GraphifyViewState<GraphifyView> {
-
   late final _controller = widget.controller ?? GraphifyController();
 
   String get _uid => _controller.uid;
@@ -62,7 +62,7 @@ class _GraphifyViewWeb extends g_view.GraphifyViewState<GraphifyView> {
   HTMLIFrameElement createHTMLIFrameElement(_) {
     final iframe = HTMLIFrameElement()
       ..id = 'graphify_$_uid'
-      ..style.width  = '100%'
+      ..style.width = '100%'
       ..style.height = '100%'
       ..style.border = 'none'
       ..srcdoc = indexHtml(id: _uid).toJS
